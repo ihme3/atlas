@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>ATLAS — пространство учёбы</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="ATLAS — главная">
+        <span class="brand-mark">A</span><span>ATLAS<small>учись в своём ритме</small></span>
+      </a>
+      <div class="side-label">РАБОЧЕЕ ПРОСТРАНСТВО</div>
+      <nav class="nav">
+        <button class="nav-item active" data-page="home"><span>⌂</span> Главная</button>
+        <button class="nav-item" data-page="study"><span>▤</span> Учёба</button>
+        <button class="nav-item" data-page="quests"><span>✦</span> Квесты <i class="nav-dot"></i></button>
+        <button class="nav-item" data-page="games"><span>▦</span> Игровая</button>
+        <button class="nav-item" data-page="stats"><span>▥</span> Статистика</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-profile"><div class="avatar">У</div><div><b>Мой профиль</b><small>Исследователь · ур. <span id="sideLevel">1</span></small></div></div>
+        <div class="side-note">Твой прогресс хранится<br>на этом устройстве.</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow" id="todayLabel">ТВОЁ ПРОСТРАНСТВО</div><h1 id="pageTitle">Добро пожаловать!</h1></div>
+        <div class="top-actions"><div class="streak"><span>✦</span> <b id="xpTop">0 XP</b></div><button class="icon-button" id="resetAll" title="Сбросить прогресс" aria-label="Сбросить прогресс">↺</button></div>
+      </header>
+
+      <section class="page active" id="page-home">
+        <div class="hero">
+          <div class="hero-copy"><div class="pill blue-pill">ТВОЯ УЧЕБНАЯ ВСЕЛЕННАЯ</div><h2>Большие цели<br><em>начинаются с малого.</em></h2><p>Выбирай направление, проходи задания и открывай новые уровни. ATLAS поможет превратить учёбу в понятное приключение.</p><button class="primary-btn" data-goto="study">Начать занятие <span>→</span></button></div>
+          <div class="hero-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="planet">A<span>✦</span></div><div class="float-card fc-one">+25 XP <small>за занятие</small></div><div class="float-card fc-two">Фокус <b>ON</b></div><div class="star s1">✦</div><div class="star s2">✧</div></div>
+        </div>
+        <div class="section-heading"><div><div class="eyebrow">СЕГОДНЯ</div><h2>Твой обзор</h2></div><span class="muted" id="dateLong"></span></div>
+        <div class="stat-grid">
+          <article class="stat-card"><div class="stat-icon blue">◷</div><div class="stat-name">Время в фокусе</div><strong id="todayMinutes">0 <small>мин</small></strong><div class="stat-foot">сегодня</div></article>
+          <article class="stat-card"><div class="stat-icon red">✦</div><div class="stat-name">Опыт</div><strong id="totalXP">0 <small>XP</small></strong><div class="stat-foot">всего заработано</div></article>
+          <article class="stat-card"><div class="stat-icon lilac">▣</div><div class="stat-name">Завершено занятий</div><strong id="totalSessions">0</strong><div class="stat-foot">в твоей истории</div></article>
+          <article class="stat-card"><div class="stat-icon yellow">⌁</div><div class="stat-name">Уровень</div><strong id="levelNum">1</strong><div class="progress-track"><span id="levelProgress"></span></div><div class="stat-foot" id="levelCaption">0 / 100 XP до следующего</div></article>
+        </div>
+        <div class="home-columns">
+          <article class="panel"><div class="panel-head"><div><div class="eyebrow">БЫСТРЫЙ СТАРТ</div><h3>Выбери предмет</h3></div><button class="text-btn" data-goto="study">Все занятия →</button></div><div class="subject-shortcuts">
+            <button class="subject-tile history" data-subject="История"><span class="subject-symbol">⌛</span><b>История</b><small>События и эпохи</small></button>
+            <button class="subject-tile society" data-subject="Обществознание"><span class="subject-symbol">◎</span><b>Обществознание</b><small>Общество и право</small></button>
+            <button class="subject-tile russian" data-subject="Русский язык"><span class="subject-symbol">А</span><b>Русский язык</b><small>Задания ЕГЭ</small></button>
+          </div></article>
+          <article class="panel quote-panel"><div class="eyebrow">МАЛЕНЬКОЕ НАПОМИНАНИЕ</div><div class="quote-mark">“</div><h3>Не обязательно делать всё сразу. Важно продолжать.</h3><p>Один осмысленный шаг — уже движение вперёд.</p><div class="quote-line"></div><span>ATLAS · ТВОЙ ТЕМП</span></article>
+        </div>
+        <article class="panel recent-panel"><div class="panel-head"><div><div class="eyebrow">ПОСЛЕДНИЕ ШАГИ</div><h3>Недавняя активность</h3></div><button class="text-btn" data-goto="stats">Вся статистика →</button></div><div id="recentList" class="recent-list"><div class="empty-state">Здесь появятся твои первые занятия.</div></div></article>
+      </section>
+
+      <section class="page" id="page-study">
+        <div class="page-intro"><div><div class="eyebrow">ПЛАНИРУЙ И ДЕЙСТВУЙ</div><h2>Учебная зона</h2><p>Выбери предмет, уточни тему и запусти сессию.</p></div><div class="focus-chip">✦ Режим концентрации</div></div>
+        <div class="study-layout">
+          <div class="study-main">
+            <article class="panel">
+              <div class="panel-head"><div><div class="eyebrow">ШАГ 01</div><h3>Предмет и тема</h3></div><span class="step-count">01 / 03</span></div>
+              <div class="subject-tabs" id="subjectTabs">
+                <button class="subject-tab selected" data-subject="История">⌛ История</button><button class="subject-tab" data-subject="Обществознание">◎ Обществознание</button><button class="subject-tab" data-subject="Русский язык">А Русский язык</button>
+              </div>
+              <label class="field-label" for="topicSelect">Тема занятия</label><select id="topicSelect"></select>
+              <div class="add-topic"><input id="newTopic" type="text" placeholder="Своя тема — например, реформы Петра I"><button class="outline-btn" id="addTopic">＋ Добавить тему</button></div>
+              <div class="selected-topic" id="topicHint">Выбери тему, с которой хочешь поработать.</div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><div><div class="eyebrow">ШАГ 02</div><h3>Задача на занятие</h3></div><span class="step-count">02 / 03</span></div>
+              <label class="field-label" for="studyTask">Что нужно сделать?</label><textarea id="studyTask" rows="3" placeholder="Например: повторить причины Первой мировой войны и составить краткий план..."></textarea>
+              <div class="task-presets"><button data-task="Прочитать и законспектировать материал">Конспект</button><button data-task="Повторить теорию и термины">Повторение</button><button data-task="Решить практические задания">Практика</button><button data-task="Проверить и разобрать ошибки">Разбор ошибок</button></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><div><div class="eyebrow">ШАГ 03</div><h3>Продолжительность</h3></div><span class="step-count">03 / 03</span></div>
+              <div class="duration-options"><button data-minutes="15">15 <small>мин</small></button><button class="chosen" data-minutes="25">25 <small>мин</small></button><button data-minutes="45">45 <small>мин</small></button><button data-minutes="60">60 <small>мин</small></button><label class="custom-duration"><input id="customMinutes" type="number" min="1" max="240" placeholder="—"><small>своё время, мин</small></label></div>
+            </article>
+          </div>
+          <aside class="timer-panel">
+            <div class="timer-top"><span class="live-dot"></span> ТАЙМЕР ФОКУСА <span class="timer-menu">•••</span></div>
+            <div class="timer-ring" id="timerRing"><div class="timer-inner"><span id="timerDisplay">25:00</span><small id="timerStatus">ГОТОВ К РАБОТЕ</small></div></div>
+            <div class="timer-topic" id="timerTopic">История · Выбери тему</div>
+            <div class="timer-task" id="timerTask">Твоя задача появится здесь</div>
+            <div class="timer-controls"><button class="primary-btn full" id="timerStart">Начать фокус</button><div class="timer-secondary"><button class="outline-btn" id="timerReset">Сбросить</button><button class="outline-btn" id="timerSkip">Завершить</button></div></div>
+            <div class="timer-foot">Можно поставить на паузу в любой момент.<br>Прогресс сохранится после завершения.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="page" id="page-quests">
+        <div class="page-intro"><div><div class="eyebrow">ИСПЫТАНИЯ ATLAS</div><h2>Квесты и миссии</h2><p>Проверь знания в коротком приключении. Каждый ответ приближает к финалу.</p></div><div class="focus-chip red-chip">✦ Сложность: смешанная</div></div>
+        <div class="quest-banner"><div><div class="pill red-pill">ОСОБАЯ МИССИЯ</div><h3>Экспедиция знаний</h3><p>Пройди 5 этапов из истории, обществознания и русского языка. В конце узнай результат и получи учебный маршрут.</p><button class="primary-btn red-btn" id="startQuest">Начать экспедицию <span>→</span></button></div><div class="quest-emblem">✧<b>05</b><small>ЭТАПОВ</small></div></div>
+        <div class="section-heading"><div><div class="eyebrow">КАК ЭТО РАБОТАЕТ</div><h2>Твой результат — твой маршрут</h2></div></div>
+        <div class="quest-outcomes"><article class="outcome-card win"><span>✦</span><h3>Победа</h3><p>4–5 правильных ответов</p><strong>25 минут</strong><small>учебного фокуса</small></article><article class="outcome-card lose"><span>↗</span><h3>Нужно повторить</h3><p>0–3 правильных ответа</p><strong>45 минут</strong><small>на спокойное закрепление</small></article></div>
+        <div class="muted small-note">Время — рекомендация для следующего занятия. Ты сам решаешь, когда его запускать и можешь изменить длительность.</div>
+        <div class="quest-area panel hidden" id="questArea"><div class="quest-progress"><span id="questStep">ЭТАП 1 ИЗ 5</span><div class="progress-track"><span id="questBar"></span></div><span id="questScore">0 / 5</span></div><div class="eyebrow" id="questSubject">ИСТОРИЯ</div><h3 id="questQuestion"></h3><div class="answer-list" id="questAnswers"></div><div class="quest-feedback" id="questFeedback"></div><button class="primary-btn" id="questNext" disabled>Следующий этап →</button></div>
+        <div class="quest-result panel hidden" id="questResult"></div>
+      </section>
+
+      <section class="page" id="page-games">
+        <div class="page-intro"><div><div class="eyebrow">ПЕРЕЗАГРУЗКА</div><h2>Игровая</h2><p>Небольшие игры для переключения внимания между занятиями.</p></div><div class="focus-chip">Играй в своём темпе</div></div>
+        <div class="game-grid">
+          <button class="game-card" data-game="memory"><span class="game-art memory-art">▦</span><b>Память</b><small>Найди все пары карточек</small><span class="game-link">Играть →</span></button>
+          <button class="game-card" data-game="mines"><span class="game-art mine-art">✳</span><b>Сапёр</b><small>Открывай клетки и избегай мин</small><span class="game-link">Играть →</span></button>
+          <button class="game-card" data-game="sequence"><span class="game-art sequence-art">1 3 5</span><b>Числовой ряд</b><small>Найди закономерность</small><span class="game-link">Играть →</span></button>
+          <button class="game-card" data-game="metro"><span class="game-art metro-art">↗</span><b>Линия метро</b><small>Построй маршрут по станциям</small><span class="game-link">Играть →</span></button>
+        </div>
+        <div class="game-stage panel hidden" id="gameStage"><div class="panel-head"><div><div class="eyebrow">МИНИ-ИГРА</div><h3 id="gameTitle">Игра</h3></div><button class="text-btn" id="closeGame">← К играм</button></div><div id="gameContent"></div></div>
+      </section>
+
+      <section class="page" id="page-stats">
+        <div class="page-intro"><div><div class="eyebrow">ТВОЙ ПУТЬ</div><h2>Статистика</h2><p>Смотри, как постепенно складывается твой результат.</p></div><button class="outline-btn" id="exportData">↓ Скачать данные</button></div>
+        <div class="stat-grid"><article class="stat-card"><div class="stat-icon blue">◷</div><div class="stat-name">Всего в фокусе</div><strong id="allMinutes">0 <small>мин</small></strong></article><article class="stat-card"><div class="stat-icon red">✦</div><div class="stat-name">Всего XP</div><strong id="allXP">0</strong></article><article class="stat-card"><div class="stat-icon lilac">▣</div><div class="stat-name">Занятий</div><strong id="allSessions">0</strong></article><article class="stat-card"><div class="stat-icon yellow">⌁</div><div class="stat-name">Квестов пройдено</div><strong id="allQuests">0</strong></article></div>
+        <div class="stats-columns"><article class="panel"><div class="eyebrow">РАСПРЕДЕЛЕНИЕ</div><h3>Время по предметам</h3><div id="subjectBars" class="subject-bars"></div></article><article class="panel"><div class="eyebrow">ИСТОРИЯ</div><h3>Последние занятия</h3><div id="historyList" class="history-list"></div></article></div>
+      </section>
+      <footer>ATLAS <span>·</span> пространство, в котором знания становятся твоим маршрутом.</footer>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
